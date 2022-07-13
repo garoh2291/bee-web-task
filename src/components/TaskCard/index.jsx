@@ -1,4 +1,8 @@
-import { CaretRightOutlined, DeleteTwoTone } from "@ant-design/icons";
+import {
+  CaretRightOutlined,
+  CheckOutlined,
+  DeleteTwoTone,
+} from "@ant-design/icons";
 import { Card, Typography } from "antd";
 
 import "./styles.css";
@@ -13,20 +17,20 @@ export const TaskCard = ({ task, deletehandler, changeTaskStatusHandler }) => {
         {" "}
         <Text style={{ width: "70%", marginLeft: "10px" }}>{title}</Text>
         <div>
-          <button onClick={() => deletehandler(_id)}>
-            {" "}
-            <DeleteTwoTone />
-          </button>
           {status !== "done" ? (
             <button
-              title="change status"
+              title={status === "to do" ? "Start Doing" : "Make Done"}
               onClick={() => changeTaskStatusHandler(_id, status)}
             >
-              <CaretRightOutlined />{" "}
+              {status === "doing" ? <CheckOutlined /> : <CaretRightOutlined />}{" "}
             </button>
           ) : (
             ""
           )}
+          <button onClick={() => deletehandler(_id)}>
+            {" "}
+            <DeleteTwoTone />
+          </button>
         </div>
       </div>
     </Card>
