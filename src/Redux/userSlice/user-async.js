@@ -74,11 +74,13 @@ export const getUserDetailsThunk = createAsyncThunk(
           if (data.error.status === 401) {
             cb();
             dispatch(removeUser());
+            throw new Error(data.error);
           }
         }
 
         dispatch(setUser({ data }));
-      });
+      })
+      .catch((err) => console.log(err));
   }
 );
 

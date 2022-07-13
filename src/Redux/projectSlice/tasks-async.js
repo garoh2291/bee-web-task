@@ -91,9 +91,13 @@ export const changeStatusThunk = createAsyncThunk(
     })
       .then((res) => res.json())
       .then((data) => {
+        if (data.error) {
+          throw new Error(data.error);
+        }
         successMessage("Success");
 
         dispatch(changedTaskDetails({ data }));
-      });
+      })
+      .catch((err) => console.log(err));
   }
 );
