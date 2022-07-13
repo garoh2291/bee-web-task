@@ -1,0 +1,6 @@
+.project_page_layput {
+  width: 100%;
+  height: calc(100vh - 50px);
+  padding: 20px 50px;
+  overflow-y: scroll;
+}

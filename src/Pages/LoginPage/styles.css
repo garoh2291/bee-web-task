@@ -1,0 +1,4 @@
+.login_section_layout {
+  width: 100%;
+  height: calc(100% - 50px);
+}

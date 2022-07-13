@@ -1,0 +1,24 @@
+.task_column {
+  width: 100%;
+  padding: 10px 5px;
+}
+
+.task_column_header_text {
+  padding: 2px 5px;
+  border-radius: 7px;
+  background-color: rgb(253, 236, 200);
+  text-transform: capitalize;
+}
+
+.doing {
+  background-color: rgb(219, 237, 219);
+}
+
+.done {
+  background-color: rgb(255, 226, 221);
+}
+
+.no_task {
+  text-align: center;
+  color: #989696;
+}
