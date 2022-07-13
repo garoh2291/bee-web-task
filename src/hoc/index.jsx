@@ -5,7 +5,6 @@ import { useAuth } from "../hooks/use-auth";
 export const RequaireAuth = ({ children }) => {
   const location = useLocation();
   const { isAuth } = useAuth();
-  console.log(isAuth);
 
   if (!isAuth) {
     return <Navigate to={"/login"} state={{ from: location }} />;

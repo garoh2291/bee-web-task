@@ -61,7 +61,7 @@ export const loginUserThunk = createAsyncThunk(
 
 export const getUserDetailsThunk = createAsyncThunk(
   "user/getUserDetailsThunk",
-  function (_, { dispatch }) {
+  function (cb, { dispatch }) {
     fetch(`${BACKEND_URL}/user`, {
       method: "GET",
       headers: {
@@ -72,6 +72,7 @@ export const getUserDetailsThunk = createAsyncThunk(
       .then((data) => {
         if (data.error || data.errors) {
           if (data.error.status === 401) {
+            cb();
             dispatch(removeUser());
           }
         }

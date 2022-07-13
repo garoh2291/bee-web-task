@@ -8,10 +8,10 @@ import { addTask, changedTaskDetails, deleteTask, setTasks } from ".";
 
 export const setTasksThunk = createAsyncThunk(
   "project/setTasksThunk",
-  function (query, { dispatch, rejectWithValue }) {
+  function ({ query }, { dispatch, rejectWithValue }) {
     getTasksRequest(query)
       .then((data) => {
-        if (data.errors) {
+        if (data.error || data.errors) {
           if (data.error.status === 401) {
             dispatch(removeUser);
           }

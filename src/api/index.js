@@ -10,8 +10,12 @@ function get(url) {
   })
     .then((respone) => respone.json())
     .then((data) => {
+      if (data.error || data.errors) {
+        throw new Error(data.error[0]);
+      }
       return data;
-    });
+    })
+    .catch((err) => console.log(err));
 }
 export function getTasksRequest(query) {
   return get(`${BACKEND_URL}/task${query ? `?${query}` : ""}`);
