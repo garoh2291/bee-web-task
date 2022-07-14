@@ -8,7 +8,7 @@ import { addTask, changedTaskDetails, deleteTask, setTasks } from ".";
 
 export const setTasksThunk = createAsyncThunk(
   "project/setTasksThunk",
-  function ({ query }, { dispatch, rejectWithValue }) {
+  function (query, { dispatch, rejectWithValue }) {
     getTasksRequest(query)
       .then((data) => {
         if (data.error || data.errors) {
